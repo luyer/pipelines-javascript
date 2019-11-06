@@ -20,9 +20,16 @@ steps:
     npm run build
     npm install mocha --save-dev
     yarn install
-  displayName: 'npm install and build'
-
-- script: 
     mocha test --reporter mocha-junit-reporter
     npm test
-  displayName: 'test install and build'
+  displayName: 'npm install and build'
+- task: PublishTestResults@2
+  condition: succeededOrFailed()
+  inputs:
+    testRunner: JUnit
+    testResultsFiles: '**/TEST-RESULTS.xml'
+- task: PublishCodeCoverageResults@1
+  inputs: 
+    codeCoverageTool: Cobertura
+    summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/*coverage.xml'
+    reportDirectory: '$(System.DefaultWorkingDirectory)/**/coverage'
