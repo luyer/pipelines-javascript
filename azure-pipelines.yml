@@ -22,3 +22,5 @@ steps:
     yarn install
   displayName: 'npm install and build'
 
+- script: mocha test --reporter mocha-junit-reporter
+- script: npm test
