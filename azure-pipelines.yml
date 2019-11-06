@@ -25,5 +25,5 @@ steps:
     yarn install
     npm run compile
     tsc --target ES6 --strict true --project tsconfigs/production.json
-  displayName: 'yarn install, TypeScript ES6? and build'
+  displayName: 'yarn install, TypeScript ES6 and build'
 
