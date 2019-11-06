@@ -19,11 +19,8 @@ steps:
     npm install
     npm run build
     npm install mocha --save-dev
-  displayName: 'npm install and build'
-
-- script: |
     yarn install
     npm run compile
     tsc --target ES6 --strict true --project tsconfigs/production.json
-  displayName: 'yarn install, TypeScript ES6 and build'
+  displayName: 'npm install and build'
 
